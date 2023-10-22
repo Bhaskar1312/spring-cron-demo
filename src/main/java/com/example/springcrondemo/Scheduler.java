@@ -15,11 +15,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-@Configuration
+// @Configuration
+@Component
 @EnableScheduling
 public class Scheduler {
     Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-    @Scheduled(cron = "0 */1 16 * * ?")
+    @Scheduled(cron = "0 */1 17 * * ?")
     public void someJob() {
         logger.info(LocalDateTime.now().toString());
     }
