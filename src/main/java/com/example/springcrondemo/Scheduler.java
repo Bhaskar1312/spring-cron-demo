@@ -3,6 +3,8 @@ package com.example.springcrondemo;
 
 
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.util.TimeZone;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,12 @@ public class Scheduler {
     // @Scheduled(cron = "0 */1 * * * *")
     public void isAppReady() {
         logger.info("Just printing Ready stuff");
+    }
+
+    @Scheduled(cron = "0 */3 0 * * *", zone = "America/Los_Angeles")
+    public void zonalCron() {
+        logger.info(String.valueOf(ZonedDateTime.now(TimeZone.getTimeZone("America/Los_Angeles").toZoneId())));
+        logger.info("US Pacific cron");
     }
 
 }
